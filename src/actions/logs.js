@@ -5,14 +5,12 @@ import {
   LOGS_RECEIVE
 } from '../constants/logs';
 
-const generateUrl = (offset = 0, limit = 50) => `https://changelog.maisoumenos.xyz/?limit=${limit}&offset=${offset}`;
+const generateUrl = (page = 0) => `https://api.github.com/users/cseale/events/public?page=${page}`;
 
 export const fetchLogs = () => (dispatch, getState) => {
-  const {loaded} = getState().logs.toJS().counts;
-
   dispatch({ type: LOGS_FETCH });
 
-  const url = generateUrl(loaded);
+  const url = generateUrl(0);
 
   fetch(url)
     .then(result => result.json())
@@ -20,8 +18,7 @@ export const fetchLogs = () => (dispatch, getState) => {
       dispatch({
         type: LOGS_RECEIVE,
         payload: {
-          list: json.data,
-          total: json.pagination.total
+          list: json
         }
       })
     })

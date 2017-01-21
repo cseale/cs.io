@@ -20,7 +20,6 @@ export default class Filters extends Component {
                     onChange={change}
                     checked={filter.active}
                   />
-                  <span className="filter-span">{ filter.label }</span>
                 </label>
               </li>
             )

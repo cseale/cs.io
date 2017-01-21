@@ -33,18 +33,37 @@ export default class Changelog extends Component {
     }
   }
 
+  generateMessage(item) {
+    switch(item.type) {
+      case 'DeleteEvent':
+        return `Deleted branch ${item.payload.ref} from [${item.repo.name}](${item.repo.url})`
+      case 'ForkEvent':
+        return `Forked repository [${item.repo.name}](${item.repo.url})`
+      case 'PushEvent':
+        return `Pushed ${item.payload.commits.length} commits to [${item.repo.name}](${item.repo.url})`
+      case 'PullRequestEvent':
+        return `Closed [#${item.payload.pull_request.number} - ${item.payload.pull_request.title}](${item.payload.pull_request.url}) commits to [${item.repo.name}](${item.repo.url})`;
+      case 'IssuesEvent':
+        return `Closed [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) commits to [${item.repo.name}](${item.repo.url})`;
+      case 'IssueCommentEvent':
+        return `Commented on issue [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) on [${item.repo.name}](${item.repo.url})`
+      default:
+        return item.type;
+    }
+  }
+
   renderLog () {
-    const { isFetching, counts, list } = this.props;
+    const { list } = this.props;
 
     return <ul>
       { list.map((item, index) => {
         return (
-          <li className={ item.source.toLowerCase() } key={index}>
+          <li className="github" key={index}>
             <div>
               <span className="indicator"></span>
             </div>
-            <div className="time">{moment(item.createdAt).fromNow()}</div>
-            <div className="measure" dangerouslySetInnerHTML={{ __html: markdown.toHTML(item.body) }}></div>
+            <div className="time">{moment(item.created_at).fromNow()}</div>
+            <div className="measure" dangerouslySetInnerHTML={{ __html: markdown.toHTML(this.generateMessage(item)) }}></div>
           </li>
         )
       }) }
@@ -55,10 +74,8 @@ export default class Changelog extends Component {
     const { loaded, total } = this.props.counts;
 
     return (
-      <Section tagName='article' className='section'>
-        <h2 className='measure'>- Changelog <em>({ loaded }/{ total })</em></h2>
-        <p className='measure'>After leaving Palantir in August 2016, I decided to take some time off. Below is a changelog of how I'm using that time.</p>
-        <Filters filters={this.props.filters} onChange={this.props.toggleFilter} />
+      <Section tagName='article' className='section measure'>
+        <h2 className='measure'>- Github Activity (Previous 30 Events)</h2>
         { this.renderLog() }
         { this.props.isFetching && <Loader />}
         { this.shouldRenderLoadMore() }

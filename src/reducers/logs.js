@@ -17,8 +17,7 @@ const initialState = new Immutable.Map({
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-  const { counts, list } = state.toJS();
-  const { loaded } = counts;
+  const { list } = state.toJS();
 
   switch (type) {
     case LOGS_FETCH:
@@ -27,11 +26,7 @@ const reducer = (state = initialState, action) => {
       return state.mergeDeep({
         fetchedAt: new Date(),
         isFetching: false,
-        list: list.concat(payload.list),
-        counts: {
-          total: payload.total,
-          loaded: loaded + payload.list.length
-        }
+        list: list.concat(payload.list)
       });
     default:
       return state;

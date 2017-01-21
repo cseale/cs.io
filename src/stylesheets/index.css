@@ -56,9 +56,9 @@ a {
 
 a:hover { text-decoration: underline; }
 
-.measure { max-width: 34em; }
+.measure { max-width: 50em; }
 
-.section { margin: 64px; }
+.section { margin: 64px auto; }
 
 @media (max-width: 600px) {
   .time { display: none; }
