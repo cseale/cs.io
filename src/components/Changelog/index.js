@@ -35,6 +35,8 @@ export default class Changelog extends Component {
 
   generateMessage(item) {
     switch(item.type) {
+      case 'CreateEvent':
+        return `Created branch ${item.payload.ref} on [${item.repo.name}](${item.repo.url})`
       case 'DeleteEvent':
         return `Deleted branch ${item.payload.ref} from [${item.repo.name}](${item.repo.url})`
       case 'ForkEvent':
