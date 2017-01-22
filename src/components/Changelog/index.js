@@ -36,21 +36,21 @@ export default class Changelog extends Component {
   generateMessage(item) {
     switch(item.type) {
       case 'CommitCommentEvent':
-        return `Commented on commit ${item.payload.commit_id} on [${item.repo.name}](${item.repo.url})`
+        return `commented on commit ${item.payload.commit_id} on [${item.repo.name}](${item.repo.url})`
       case 'CreateEvent':
-        return `Created branch ${item.payload.ref} on [${item.repo.name}](${item.repo.url})`
+        return `created branch ${item.payload.ref} on [${item.repo.name}](${item.repo.url})`
       case 'DeleteEvent':
-        return `Deleted branch ${item.payload.ref} from [${item.repo.name}](${item.repo.url})`
+        return `deleted branch ${item.payload.ref} from [${item.repo.name}](${item.repo.url})`
       case 'ForkEvent':
-        return `Forked repository [${item.repo.name}](${item.repo.url})`
+        return `forked repository [${item.repo.name}](${item.repo.url})`
       case 'PushEvent':
-        return `Pushed ${item.payload.commits.length} commits to [${item.repo.name}](${item.repo.url})`
+        return `pushed ${item.payload.commits.length} commits to [${item.repo.name}](${item.repo.url})`
       case 'PullRequestEvent':
-        return `Closed [#${item.payload.pull_request.number} - ${item.payload.pull_request.title}](${item.payload.pull_request.url}) commits to [${item.repo.name}](${item.repo.url})`;
+        return `${item.payload.action} [#${item.payload.pull_request.number} - ${item.payload.pull_request.title}](${item.payload.pull_request.url}) commits to [${item.repo.name}](${item.repo.url})`;
       case 'IssuesEvent':
-        return `Closed [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) commits to [${item.repo.name}](${item.repo.url})`;
+        return `${item.payload.action} [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) commits to [${item.repo.name}](${item.repo.url})`;
       case 'IssueCommentEvent':
-        return `Commented on issue [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) on [${item.repo.name}](${item.repo.url})`
+        return `commented on issue [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) on [${item.repo.name}](${item.repo.url})`
       default:
         return item.type;
     }
