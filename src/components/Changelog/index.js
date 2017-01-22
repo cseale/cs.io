@@ -46,7 +46,7 @@ export default class Changelog extends Component {
       case 'PushEvent':
         return `pushed ${item.payload.commits.length} commits to [${item.repo.name}](${item.repo.url})`
       case 'PullRequestEvent':
-        return `${item.payload.action} [#${item.payload.pull_request.number} - ${item.payload.pull_request.title}](${item.payload.pull_request.url}) commits to [${item.repo.name}](${item.repo.url})`;
+        return `${item.payload.action} [#${item.payload.pull_request.number} - ${item.payload.pull_request.title}](${item.payload.pull_request.url}) on [${item.repo.name}](${item.repo.url})`;
       case 'IssuesEvent':
         return `${item.payload.action} [#${item.payload.issue.number} - ${item.payload.issue.title}](${item.payload.issue.url}) commits to [${item.repo.name}](${item.repo.url})`;
       case 'IssueCommentEvent':
