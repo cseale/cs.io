@@ -44,7 +44,7 @@ const footerList = [{
   description: "[github.com/cseale](https://github.com/cseale)"
 },{
   term: "LinkedIn",
-  description: "[linkedin.com/in/colm-seale-977a2b4b](https://https://www.linkedin.com/in/colm-seale-977a2b4b)"
+  description: "[linkedin.com/in/colm-seale-977a2b4b](https://www.linkedin.com/in/colm-seale-977a2b4b)"
 }];
 
 class App extends Component {
