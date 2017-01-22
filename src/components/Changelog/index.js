@@ -36,7 +36,7 @@ export default class Changelog extends Component {
   generateMessage(item) {
     switch(item.type) {
       case 'CommitCommentEvent':
-        return `Commented on commit ${item.payload.commit_id} [${item.repo.name}](${item.repo.url})`
+        return `Commented on commit ${item.payload.commit_id} on [${item.repo.name}](${item.repo.url})`
       case 'CreateEvent':
         return `Created branch ${item.payload.ref} on [${item.repo.name}](${item.repo.url})`
       case 'DeleteEvent':
