@@ -4,7 +4,7 @@ import Definition from './components/Definition';
 import Section from './components/Section';
 import Changelog from './containers/Changelog';
 
-const headerMD = "# - Colm Seale [(cseale)](https://github.com/cseale)\n\nA software engineer living in Galway, Ireland, who as a keen interest in UI and server development, and is beginning to explore the data science and machine learning realms. Currently working in [Altocloud](https://www.altocloud.com) and contributor to mulitple OS projects like NASA [OpenMCT](https://nasa.github.io/openmct/), [Storj](https://storj.io/) and the [Rust Programming Language](https://www.rust-lang.org/en-US/community.html)";
+const headerMD = "# - Colm Seale [(cseale)](https://github.com/cseale)\n\nA software engineer living in Galway, Ireland, who as a keen interest in UI and server development, and is beginning to explore the data science and machine learning realms. Currently working in [Altocloud](https://www.altocloud.com) and contributor to mulitple OS projects like [NASA OpenMCT](https://nasa.github.io/openmct/), [Storj](https://storj.io/) and the [Rust Programming Language](https://www.rust-lang.org/en-US/community.html)";
 
 const changelogMD = `# - ChangeLog
 
