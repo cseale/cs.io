@@ -41,6 +41,8 @@ export default class Changelog extends Component {
         return `created branch ${item.payload.ref} on [${item.repo.name}](${item.repo.url})`
       case 'DeleteEvent':
         return `deleted branch ${item.payload.ref} from [${item.repo.name}](${item.repo.url})`
+      case 'WatchEvent':
+        return `started watching [${item.repo.name}](${item.repo.url})`
       case 'ForkEvent':
         return `forked repository [${item.repo.name}](${item.repo.url})`
       case 'PushEvent':
