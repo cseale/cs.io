@@ -21,11 +21,16 @@ Front-End Tech Lead: Created Single Page Web Apps using AngularJS 1.X, ReactJS, 
 Server-Side: Designed and developed microservices using Docker and the Spring Boot ecosystem.
 
 DevOps: Increased our DevOps capabilities by developing a Continuous Deployment strategy through Jenkins, Nexus and custom UNIX scripts to manage our multiple services and migration to Docker containers.
+
+#B.E Electronic and Computer Engineering (Sept 2008 to April 2012)
+
+1st Class Honours
+National University of Ireland, Galway
 `;
 
 const toolbeltMD = `# - Dependencies
 
-Java, Javascript, NodeJS, ReactJS Native, AngularJS, Spring 4, Python, Chef, Rust, Docker, Machine Learning, CI & CD
+Java, Javascript, NodeJS, ReactJS Native, AngularJS, Spring, Matlab, Octave, Python, Chef, Rust, Docker, Machine Learning, CI & CD
 `;
 
 const contribuingMD = `# - Contributing
