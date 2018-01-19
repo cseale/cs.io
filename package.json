@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.2.1"
+    "react-scripts": "1.1.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -13,10 +13,11 @@
     "moment": "^2.14.1",
     "now-serve": "^0.3.1",
     "ramda": "^0.22.1",
-    "react": "^15.2.1",
+    "react": "^16.2.0",
     "react-addons-create-fragment": "^15.3.1",
-    "react-dom": "^15.2.1",
+    "react-dom": "^16.2.0",
     "react-redux": "^4.4.5",
+    "react-typed": "^1.0.7",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "whatwg-fetch": "^1.0.0"

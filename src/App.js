@@ -1,45 +1,13 @@
 import React, { Component } from 'react';
+import Typed from 'react-typed';
 import Container from './components/Container';
 import Definition from './components/Definition';
 import Section from './components/Section';
 import Changelog from './containers/Changelog';
-
-const headerMD = "# - Colm Seale [(cseale)](https://github.com/cseale)\n\nA software engineer living in Galway, Ireland, who as a keen interest in UI and server development, and is beginning to explore the data science and machine learning realms. Currently working in [Altocloud](https://www.altocloud.com) and contributor to mulitple OS projects like [NASA OpenMCT](https://nasa.github.io/openmct/), [Storj](https://storj.io/) and the [Rust Programming Language](https://www.rust-lang.org/en-US/community.html)";
-
-const changelogMD = `# - ChangeLog
-
-#Altocloud (Aug 2016 to Present)
-
-Web and Mobile Application Engineer: Developing applications for customer messaging, data visualisations, designing content and advertising and general administration. Achieved using AngularJS, React, React Native, WebSockets, Service Workers, NodeJS
-
-#Fidelity Investments (Sept 2012 to July 2016)
-
-Full Stack Engineer: Architected and developed a Reporting and DaaS Platform End-To-End from early project inception through to production and maintainence on a distributed agile team.
-
-Front-End Tech Lead: Created Single Page Web Apps using AngularJS 1.X, ReactJS, Bootstrap, NodeJS, NPM, Grunt, Bower, LESSJS.
-
-Server-Side: Designed and developed microservices using Docker and the Spring Boot ecosystem.
-
-DevOps: Increased our DevOps capabilities by developing a Continuous Deployment strategy through Jenkins, Nexus and custom UNIX scripts to manage our multiple services and migration to Docker containers.
-
-#B.E Electronic and Computer Engineering (Sept 2008 to April 2012)
-
-1st Class Honours
-National University of Ireland, Galway
-`;
-
-const toolbeltMD = `# - Dependencies
-
-Java, Javascript, NodeJS, ReactJS Native, AngularJS, Spring, Matlab, Octave, Python, Chef, Rust, Docker, Machine Learning, CI & CD
-`;
-
-const contribuingMD = `# - Contributing
-
-[NASA OpenMCT](https://nasa.github.io/openmct/) |
-[Storj](https://storj.io/) |
-[Rust Programming Language](https://www.rust-lang.org/en-US/community.html)
-`;
-
+import headerMD from './markdown/header';
+import changelogMD from './markdown/changelog';
+import toolbeltMD from './markdown/toolbelt';
+import contribuingMD from './markdown/contributing';
 
 const footerList = [{
   term: "Email",
@@ -55,38 +23,56 @@ const footerList = [{
 class App extends Component {
   render() {
     return (
-      <Container>
-        <Section
-          className="measure section"
-          tagName='header'
-          markdown={headerMD}
-        />
+      <div>
+        <video id="bgvid" playsInline autoPlay muted loop>
+          <source src="./data.mp4" type="video/mp4" />
+        </video>
+        <Container>
+          <div className="measure section">
+            <h1>- Colm Seale</h1>
+            <Typed 
+              strings={['Software Engineer.',
+                'Open Source Contributer.',
+                'Agile Advocate.',
+                'Blockchain Enthusiast.',
+                'Aspiring Data Scientist.',
+                'Nerd.']} 
+              typeSpeed={55} 
+              loop
+            />
+          </div>
+          <Section
+            className="measure section"
+            tagName='header'
+            markdown={headerMD}
+          />
 
-        <Section
-          className="measure section"
-          tagName='header'
-          markdown={toolbeltMD}
-        />
+          <Section
+            className="measure section"
+            tagName='header'
+            markdown={toolbeltMD}
+          />
 
-        <Section
-          className="measure section"
-          tagName='header'
-          markdown={changelogMD}
-        />
+          <Section
+            className="measure section"
+            tagName='header'
+            markdown={changelogMD}
+          />
 
-        <Section
-          className="measure section"
-          tagName='header'
-          markdown={contribuingMD}
-        />
+          <Section
+            className="measure section"
+            tagName='header'
+            markdown={contribuingMD}
+          />
 
-        <Changelog />
+          <Changelog />
 
-        <Definition
-          id="footer"
-          className="measure section"
-          list={footerList} />
-      </Container>
+          <Definition
+            id="footer"
+            className="measure section"
+            list={footerList} />
+        </Container>
+      </div>
     );
   }
 }
